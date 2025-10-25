@@ -80,5 +80,15 @@ O fluxo completo inclui:
 | [Victor] | [nUSP] |
 ---
 
+## 🔗 Links Úteis
+- 🧬 [Atlas dos Elementos Transponíveis (APTE)](http://apte.cp.utfpr.edu.br/download)  
+- 🧫 [NCBI Datasets - Zea mays](https://www.ncbi.nlm.nih.gov/datasets/)  
+- 🧠 [MathFeature - Extração de Atributos](https://github.com/Bonidia/MathFeature)  
+- 🧩 [Pse-in-One 2.0](https://www.scirp.org/journal/paperinformation?paperid=75771)  
+- 📊 [Scikit-learn - Biblioteca de ML](https://scikit-learn.org/stable/)  
+- 🧾 [Template SBC (Overleaf)](https://www.overleaf.com/latex/templates/sbc-conferences-template/blbxwjwzdngr)  
+
+---
+
 ## 📄 Licença
 Projeto desenvolvido exclusivamente para fins acadêmicos na disciplina **SCC02713 - Introdução à Bioinformática (ICMC-USP)**.

@@ -77,7 +77,7 @@ O fluxo completo inclui:
 | Nome | Nº USP | 
 |------|--------|
 | [Luiz Gabriel Correia dos Santos] | [15639682] |
-| [Victor] | [nUSP] |
+| [Victor Silva Botelho] | [15645421] |
 ---
 
 ## 🔗 Links Úteis

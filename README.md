@@ -78,6 +78,7 @@ O fluxo completo inclui:
 |------|--------|
 | [Luiz Gabriel Correia dos Santos] | [15639682] |
 | [Victor Silva Botelho] | [15645421] |
+| [João Pedro Barbosa Madeira] | [13683038] |
 ---
 
 ## 🔗 Links Úteis

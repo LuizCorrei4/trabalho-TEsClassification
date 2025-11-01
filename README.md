@@ -14,12 +14,13 @@ O fluxo completo inclui:
 
 ## 🧩 Etapas do Trabalho
 
-### 1. Coleta de Dados
+### 1. Coleta de Dados (feito em 01_data_set_construction.ipynb)
 - Baixar os 6 arquivos `.gff3` do [Atlas dos Elementos Transponíveis](http://apte.cp.utfpr.edu.br/download)
 - Filtrar apenas as linhas com `Strand = '+'`
-- Extrair as colunas `Chr`, `Start`, `End` e a classe correspondente
+- Extrair as colunas `Chr` (cromossomo), `Start`, `End` e a classe correspondente
+- Resultado: um conjunto de dados com as localizações dos elementos transponíveis
 
-### 2. Extração de Sequências
+### 2. Extração de Sequências (feito em 01_data_set_construction.ipynb)
 - Baixar os cromossomos do *Zea mays* no [NCBI Datasets](https://www.ncbi.nlm.nih.gov/datasets/)
 - Usar **BioPython** para recuperar as sequências correspondentes
 - Gerar `Dataset_Final.csv` com as colunas:
@@ -43,23 +44,36 @@ O fluxo completo inclui:
 ## 🗂️ Estrutura do Repositório
 
 📁 trabalho-TEsClassification/
-
 │
-
-├── data/ → arquivos .gff3, fasta e dataset final
-
-├── features/ → vetores de atributos extraídos
-
-├── notebooks/ → notebooks do Google Colab
-
-├── results/ → gráficos, métricas e modelos
-
-├── report/ → artigo científico e figuras
-
-├── video/ → roteiro, slides e link do vídeo
-
-└── README.md
-
+├── data/
+│   │
+│   ├── arquivos_TEAnnotation_brutos/  # → arquivos do [Atlas dos Elementos Transponíveis](http://apte.cp.utfpr.edu.br/download)
+│   │
+│   ├── arquivos_TEAnnotation_filtrados/  # → arquivos filtrados (`Strand = '+'`)
+│   │
+│   ├── fasta_genomas/ # →  cromossomos do *Zea mays* do [NCBI Datasets](https://www.ncbi.nlm.nih.gov/datasets/)
+│   │
+│   └── TE_dataset_final.csv # →  dataset final com  com as colunas: Chromosome | Sequence | Class
+│
+├── features/               # → vetores de atributos extraídos (a ser preenchido)
+│   └── .gitkeep
+│
+├── notebooks/              # → notebooks do Google Colab
+│   └── 01_dataset_construction.ipynb
+│
+├── report/                 # → artigo científico e figuras (a ser preenchido)
+│   └── .gitkeep
+│
+├── results/                # → gráficos, métricas e modelos (a ser preenchido)
+│   └── .gitkeep
+│
+├── video/                  # → roteiro, slides e link do vídeo (a ser preenchido)
+│   └── .gitkeep
+│
+├── .gitattributes
+├── .gitignore
+├── README.md
+└── venv/                   # (Pasta do ambiente virtual)
 
 ---
 

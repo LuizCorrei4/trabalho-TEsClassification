@@ -23,7 +23,7 @@ O fluxo completo inclui:
 ### 2. Extração de Sequências (feito em 01_data_set_construction.ipynb)
 - Baixar os cromossomos do *Zea mays* no [NCBI Datasets](https://www.ncbi.nlm.nih.gov/datasets/)
 - Usar **BioPython** para recuperar as sequências correspondentes
-- Gerar `Dataset_Final.csv` com as colunas:
+- Gerar `TE_dataset_final.csv` com as colunas:
   - Chromosome | Sequence | Class
 
 ### 3. Extração de Atributos
@@ -45,35 +45,22 @@ O fluxo completo inclui:
 
 📁 trabalho-TEsClassification/
 │
-├── data/
-│   │
-│   ├── arquivos_TEAnnotation_brutos/  # → arquivos do [Atlas dos Elementos Transponíveis](http://apte.cp.utfpr.edu.br/download)
-│   │
-│   ├── arquivos_TEAnnotation_filtrados/  # → arquivos filtrados (`Strand = '+'`)
-│   │
-│   ├── fasta_genomas/ # →  cromossomos do *Zea mays* do [NCBI Datasets](https://www.ncbi.nlm.nih.gov/datasets/)
-│   │
-│   └── TE_dataset_final.csv # →  dataset final com  com as colunas: Chromosome | Sequence | Class
+├── data/                   # → dados usados no projeto
 │
 ├── features/               # → vetores de atributos extraídos (a ser preenchido)
-│   └── .gitkeep
 │
-├── notebooks/              # → notebooks do Google Colab
-│   └── 01_dataset_construction.ipynb
+├── notebooks/             
 │
 ├── report/                 # → artigo científico e figuras (a ser preenchido)
-│   └── .gitkeep
 │
 ├── results/                # → gráficos, métricas e modelos (a ser preenchido)
-│   └── .gitkeep
 │
 ├── video/                  # → roteiro, slides e link do vídeo (a ser preenchido)
-│   └── .gitkeep
 │
 ├── .gitattributes
 ├── .gitignore
 ├── README.md
-└── venv/                   # (Pasta do ambiente virtual)
+└── requirements.txt
 
 ---
 

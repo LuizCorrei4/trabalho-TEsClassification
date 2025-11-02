@@ -50,8 +50,10 @@ O fluxo completo inclui:
 │   ├── arquivos_TEAnnotation_brutos/   #   → Arquivos GFF3 brutos
 │   ├── arquivos_TEAnnotation_filtrados/  #   → Arquivos GFF3 filtrados
 │   ├── fasta_genomas/                #   → Genomas em formato FASTA
+│   ├── train_test_split/                #   → Arquivos de teste e treino separados
 │   ├── TE_dataset_final.csv          #   → Dataset gerado
 │   └── TE_dataset_final_clean.csv    #   → Dataset limpo
+│   └── TE_dataset_final_pre_processed.csv    #   → Dataset limpo e pré-processado 
 │
 ├── features/                         # → Vetores de atributos extraídos (a ser preenchido)
 │

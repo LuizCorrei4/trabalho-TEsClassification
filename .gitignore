@@ -63,3 +63,12 @@ logs/
 .DS_Store
 Thumbs.db
 
+# Ignora todos os arquivos .csv dentro da pasta /data/
+/data/*.csv
+
+# Ignora todo o conteúdo das pastas de dados processados e genomas
+/data/fasta_genomas/
+/data/train_test_split/
+
+# Ignora a pasta de resultados (gráficos)
+/results/

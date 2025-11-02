@@ -62,6 +62,7 @@ O fluxo completo inclui:
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+```
 
 ---
 

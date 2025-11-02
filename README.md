@@ -41,21 +41,22 @@ O fluxo completo inclui:
 
 ---
 
-## 🗂️ Estrutura do Repositório
+## 📂 Estrutura do Repositório
 
+```bash
 📁 trabalho-TEsClassification/
 │
-├── data/                   # → dados usados no projeto
+├── data/          # → dados usados no projeto
 │
-├── features/               # → vetores de atributos extraídos (a ser preenchido)
+├── features/      # → vetores de atributos extraídos (a ser preenchido)
 │
-├── notebooks/             
+├── notebooks/     # → notebooks Jupyter utilizados no desenvolvimento
 │
-├── report/                 # → artigo científico e figuras (a ser preenchido)
+├── report/        # → artigo científico e figuras (a ser preenchido)
 │
-├── results/                # → gráficos, métricas e modelos (a ser preenchido)
+├── results/       # → gráficos, métricas e modelos (a ser preenchido)
 │
-├── video/                  # → roteiro, slides e link do vídeo (a ser preenchido)
+├── video/         # → roteiro, slides e link do vídeo (a ser preenchido)
 │
 ├── .gitattributes
 ├── .gitignore

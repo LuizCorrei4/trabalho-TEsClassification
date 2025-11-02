@@ -12,6 +12,76 @@ O fluxo completo inclui:
 
 ---
 
+## Como Começar (Instruções de Execução)
+Este repositório usa `.gitignore` para ignorar arquivos de dados grandes e processados. Para clonar o projeto e recriar os arquivos necessários, siga estas etapas:
+
+### 1. Clone e Configure o Ambiente
+```bash
+# 1. Clone o repositório
+git clone [https://github.com/LuizCorrei4/trabalho-TEsClassification.git](https://github.com/LuizCorrei4/trabalho-TEsClassification.git)
+cd trabalho-TEsClassification
+
+# 2. Crie um ambiente virtual (recomendado)
+python -m venv venv
+source venv/bin/activate  # No Windows: venv\Scripts\activate
+
+# 3. Instale as dependências
+pip install -r requirements.txt
+```
+## 2. Execute os Notebooks na Ordem
+
+Você **deve** executar os notebooks na ordem correta, pois eles dependem dos arquivos gerados pelo notebook anterior.
+
+---
+
+### 1. `01_dataset_construction.ipynb`
+
+- **O que faz:**  
+  Baixa os genomas FASTA do NCBI e constrói o dataset bruto (`TE_dataset_final.csv`).
+
+- **Ação:**  
+  Execute todas as células.
+
+---
+
+### 2. `02_eda_dataset_final.ipynb`
+
+- **O que faz:**  
+  Realiza a análise exploratória e limpa erros básicos (como 'N'), gerando o arquivo  
+  `TE_dataset_final_clean.csv`.
+
+- **Ação:**  
+  Execute todas as células.
+
+---
+
+### 3. `03_pre_processing.ipynb`
+
+- **O que faz:**  
+  Aplica o pré-processamento definido na EDA (remove sequências < 50bp, aplica log-transform no comprimento) e salva  
+  `TE_dataset_final_pre_processed.csv`.
+
+- **Ação:**  
+  Execute todas as células.
+
+---
+
+### 4. `04_dataset_balancing.ipynb`
+
+- **O que faz:**  
+  Carrega o dataset pré-processado, divide-o em treino/teste e aplica o balanceamento conservador.
+
+- **Ação:**  
+  Execute todas as células. Isso criará a pasta `data/train_test_split/`.
+
+---
+
+## 3. Próxima Etapa
+
+Após executar os 4 notebooks, você estará pronto para a **Etapa 3 (Extração de Atributos)**, que será feita no notebook  
+`05_feature_extraction.ipynb`.
+
+
 ## 🧩 Etapas do Trabalho
 
 ### 1. Coleta de Dados (feito em 01_data_set_construction.ipynb)

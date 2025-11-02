@@ -46,22 +46,31 @@ O fluxo completo inclui:
 ```bash
 📁 trabalho-TEsClassification/
 │
-├── data/          # → dados usados no projeto
+├── data/                             # → Dados brutos, filtrados e datasets
+│   ├── arquivos_TEAnnotation_brutos/   #   → Arquivos GFF3 brutos
+│   ├── arquivos_TEAnnotation_filtrados/  #   → Arquivos GFF3 filtrados
+│   ├── fasta_genomas/                #   → Genomas em formato FASTA
+│   ├── TE_dataset_final.csv          #   → Dataset gerado
+│   └── TE_dataset_final_clean.csv    #   → Dataset limpo
 │
-├── features/      # → vetores de atributos extraídos (a ser preenchido)
+├── features/                         # → Vetores de atributos extraídos (a ser preenchido)
 │
-├── notebooks/     # → notebooks Jupyter utilizados no desenvolvimento
+├── notebooks/                        # → Notebooks Jupyter
+│   ├── 01_dataset_construction.ipynb #   → Script de construção do dataset
+│   └── 02_eda_dataset_final.ipynb    #   → Análise exploratória dos dados (+ limpeza de sequências problemáticas)
 │
-├── report/        # → artigo científico e figuras (a ser preenchido)
+├── results/                          # → Gráficos da análise exploratória
+│   ├── analise_comprimento_das_sequencias.png
+│   ├── composicao_nucleotideos_por_classe.png
+│   └── matriz_de_correlacao.png
 │
-├── results/       # → gráficos, métricas e modelos (a ser preenchido)
 │
-├── video/         # → roteiro, slides e link do vídeo (a ser preenchido)
+├── video/                            # → Roteiro, slides e link do vídeo (a ser preenchido)
 │
 ├── .gitattributes
-├── .gitignore
-├── README.md
-└── requirements.txt
+├── .gitignore                        # → Arquivos ignorados pelo Git
+├── README.md                         # → Este arquivo
+└── requirements.txt                  # → Dependências do projeto
 ```
 
 ---

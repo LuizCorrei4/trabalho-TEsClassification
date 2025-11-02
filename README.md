@@ -28,13 +28,13 @@ source venv/bin/activate  # No Windows: venv\Scripts\activate
 # 3. Instale as dependências
 pip install -r requirements.txt
 ```
-## 2. Execute os Notebooks na Ordem
+### 2. Execute os Notebooks na Ordem
 
 Você **deve** executar os notebooks na ordem correta, pois eles dependem dos arquivos gerados pelo notebook anterior.
 
 ---
 
-### 1. `01_dataset_construction.ipynb`
+#### 1. `01_dataset_construction.ipynb`
 
 - **O que faz:**  
   Baixa os genomas FASTA do NCBI e constrói o dataset bruto (`TE_dataset_final.csv`).
@@ -44,7 +44,7 @@ Você **deve** executar os notebooks na ordem correta, pois eles dependem dos ar
 
 ---
 
-### 2. `02_eda_dataset_final.ipynb`
+#### 2. `02_eda_dataset_final.ipynb`
 
 - **O que faz:**  
   Realiza a análise exploratória e limpa erros básicos (como 'N'), gerando o arquivo  
@@ -55,7 +55,7 @@ Você **deve** executar os notebooks na ordem correta, pois eles dependem dos ar
 
 ---
 
-### 3. `03_pre_processing.ipynb`
+#### 3. `03_pre_processing.ipynb`
 
 - **O que faz:**  
   Aplica o pré-processamento definido na EDA (remove sequências < 50bp, aplica log-transform no comprimento) e salva  
@@ -66,7 +66,7 @@ Você **deve** executar os notebooks na ordem correta, pois eles dependem dos ar
 
 ---
 
-### 4. `04_dataset_balancing.ipynb`
+#### 4. `04_dataset_balancing.ipynb`
 
 - **O que faz:**  
   Carrega o dataset pré-processado, divide-o em treino/teste e aplica o balanceamento conservador.
@@ -76,7 +76,7 @@ Você **deve** executar os notebooks na ordem correta, pois eles dependem dos ar
 
 ---
 
-## 3. Próxima Etapa
+### 3. Próxima Etapa
 
 Após executar os 4 notebooks, você estará pronto para a **Etapa 3 (Extração de Atributos)**, que será feita no notebook  
 `05_feature_extraction.ipynb`.
@@ -84,34 +84,82 @@ Após executar os 4 notebooks, você estará pronto para a **Etapa 3 (Extração
 
 ## 🧩 Etapas do Trabalho
 
-### 1. Coleta de Dados (feito em 01_data_set_construction.ipynb)
+### 1. Coleta de Dados (`01_data_set_construction.ipynb`)
 - Baixar os 6 arquivos `.gff3` do [Atlas dos Elementos Transponíveis](http://apte.cp.utfpr.edu.br/download)
 - Filtrar apenas as linhas com `Strand = '+'`
 - Extrair as colunas `Chr` (cromossomo), `Start`, `End` e a classe correspondente
 - Resultado: um conjunto de dados com as localizações dos elementos transponíveis
 
-### 2. Extração de Sequências (feito em 01_data_set_construction.ipynb)
+### 2. Extração de Sequências (`01_data_set_construction.ipynb`)
 - Baixar os cromossomos do *Zea mays* no [NCBI Datasets](https://www.ncbi.nlm.nih.gov/datasets/)
 - Usar **BioPython** para recuperar as sequências correspondentes
 - Gerar `TE_dataset_final.csv` com as colunas:
-  - Chromosome | Sequence | Class
-
-### 3. Extração de Atributos
-- Utilizar **MathFeature** ou **Pse-in-One** para converter as sequências em vetores numéricos
-- Escolher um ou mais descritores (ex.: k-mers, entropia, autocorrelação)
-- Gerar `Features.csv` com colunas:
-  - f1, f2, f3, ..., Class
- 
-
-### 4. Treinamento e Avaliação
-- Dividir os dados em **70% treino** e **30% teste**
-- Aplicar **normalização** ou **padronização**
-- Treinar classificadores com **scikit-learn** (Random Forest, SVM, etc.)
-- Avaliar usando a **Área sob a Curva Precisão–Revocação (AUC-PR)**
+  - Cromossomo | Sequência de TE | Classe
 
 ---
 
-## 📂 Estrutura do Repositório
+### 3. Análise Exploratória (`02_eda_dataset_final.ipynb`)
+- Analisou o dataset `TE_dataset_final.csv` com foco em:
+  - Estatísticas básicas e integridade dos dados
+  - Distribuição das classes e cromossomos
+  - Comprimento das sequências
+  - Composição nucleotídica (A, T, C, G)
+  - Correlações entre variáveis
+- Principais achados:
+  - Desbalanceamento extremo entre classes (LTR = 56%, SINE = 1%)
+  - Sequências muito curtas (<50 bp) e muito longas (>10.000 bp)
+  - Pouca variação de composição nucleotídica entre classes (~53% AT)
+  - Correlação moderada entre **classe** e **comprimento** (-0.33)
+- Ações recomendadas:
+  - Remover sequências inválidas e com “N”
+  - Aplicar transformação logarítmica ao comprimento
+  - Adotar AUC-PR como métrica principal para ML
+  - Focar no balanceamento entre classes
+- Gera: `TE_dataset_final_clean.csv`
+
+---
+
+### 4. Pré-processamento (`03_pre_processing.ipynb`)
+- Carrega o dataset limpo `TE_dataset_final_clean.csv`
+- Remove as sequências muito curtas (<50 bp)
+- Aplica **transformação logarítmica** ao comprimento para reduzir assimetria
+- Realiza etapas básicas de limpeza e engenharia de features
+- Salva o dataset processado como `TE_dataset_final_pre_processed.csv`
+
+---
+
+### 5. Balanceamento (`04_dataset_balancing.ipynb`)
+- Divide o dataset em **treino (70%)** e **teste (30%)**
+- Aplica **balanceamento conservador** apenas no conjunto de treino:
+  - **Oversampling** por duplicação para classes raras (SINE, LINE)
+  - **Undersampling** para classe majoritária (LTR)
+- Evita técnicas como SMOTE para não criar sequências biologicamente artificiais
+- Gera os arquivos:
+  - `data/train_test_split/train.csv`
+  - `data/train_test_split/test.csv`
+
+---
+
+### 6. Extração de Atributos (`05_feature_extraction.ipynb`)
+- Utilizar **MathFeature** ou **Pse-in-One** para converter as sequências em vetores numéricos
+- Descritores recomendados:
+  - k-mers (2–4 nucleotídeos)
+  - Entropia
+  - Autocorrelação
+- Gerar `Features.csv`, cada sequência será então um vetor com colunas que contem um valor das características:
+  - f1 (feature 1), f2 (feature 2), f3, ..., Class
+
+---
+
+### 7. Treinamento e Avaliação
+- Treinar classificadores com **scikit-learn** (Random Forest, SVM, etc.)
+- Avaliar com a **Área sob a Curva Precisão–Revocação (AUC-PR)**
+- Realizar **validação cruzada estratificada** para evitar viés de classe
+
+---
+
+
+## 📂 Estrutura do Repositório (após rodar os notebooks)
 
 ```bash
 📁 trabalho-TEsClassification/

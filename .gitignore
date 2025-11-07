@@ -72,3 +72,11 @@ Thumbs.db
 
 # Ignora a pasta de resultados (gráficos)
 /results/
+
+# Ignora a pasta da biblioteca instalada localmente
+/notebooks/MathFeatures/
+
+# Adicione estas linhas ao .gitignore
+*.fasta
+data/train_test_split_fasta/
+notebooks/MathFeature/

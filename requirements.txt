@@ -34,7 +34,7 @@ pyparsing==3.2.5
 python-dateutil==2.9.0.post0
 pytz==2025.2
 pyzmq==27.1.0
-scikit-learn==1.7.2
+scikit-learn==1.5.2
 scipy==1.16.2
 seaborn==0.13.2
 six==1.17.0
@@ -45,3 +45,4 @@ traitlets==5.14.3
 tzdata==2025.2
 wcwidth==0.2.14
 xgboost===3.0.0
+imbalanced-learn==0.13.0

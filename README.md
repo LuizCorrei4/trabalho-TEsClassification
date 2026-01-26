@@ -139,11 +139,11 @@ Você **deve** executar os notebooks na ordem correta, pois eles dependem dos ar
 
 ### 3. Próxima Etapa
 
-Após executar os 4 notebooks, você estará pronto para a **Etapa 3 (Extração de Atributos)**, que será feita no notebook  
+Após executar os 4 notebooks, você estará pronto para a **Extração de Atributos**, que será feita no notebook  
 `05_feature_extraction.ipynb`.
 
 
-## 🧩 Etapas do Trabalho
+## Etapas do Trabalho
 
 ### 1. Coleta de Dados (`01_data_set_construction.ipynb`)
 - Baixar os 6 arquivos `.gff3` do [Atlas dos Elementos Transponíveis](http://apte.cp.utfpr.edu.br/download)
@@ -212,7 +212,7 @@ Após executar os 4 notebooks, você estará pronto para a **Etapa 3 (Extração
 
 ---
 
-### 7. Treinamento e Avaliação
+### 7. Treinamento e Avaliação (`06_training_model.ipynb`)
 - Treinar classificadores com **scikit-learn** (Random Forest, SVM, etc.)
 - Avaliar com a **Área sob a Curva Precisão–Revocação (AUC-PR)**
 - Realizar **validação cruzada estratificada** para evitar viés de classe

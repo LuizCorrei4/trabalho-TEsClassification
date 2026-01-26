@@ -178,14 +178,16 @@ Após executar os 4 notebooks, você estará pronto para a **Etapa 3 (Extração
 ├── notebooks/                        # → Notebooks Jupyter
 │   ├── 01_dataset_construction.ipynb #   → Script de construção do dataset
 │   └── 02_eda_dataset_final.ipynb    #   → Análise exploratória dos dados (+ limpeza de sequências problemáticas)
+|   └── 03_pre_processing.ipynb        #   → Pré-processamento dos dados
+|   └── 04_dataset_balancing.ipynb     #   → Balanceamento do dataset
+|   └── 05_feature_extraction.ipynb    #   → Extração de atributos
+|   └── 06_training_model.ipynb        #   → Treinamento e avaliação do modelo
 │
 ├── results/                          # → Gráficos da análise exploratória
 │   ├── analise_comprimento_das_sequencias.png
 │   ├── composicao_nucleotideos_por_classe.png
 │   └── matriz_de_correlacao.png
-│
-│
-├── video/                            # → Roteiro, slides e link do vídeo (a ser preenchido)
+│                    # → Roteiro, slides e link do vídeo (a ser preenchido)
 │
 ├── .gitattributes
 ├── .gitignore                        # → Arquivos ignorados pelo Git

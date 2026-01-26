@@ -11,6 +11,67 @@ O fluxo completo inclui:
 4. Elaboração de relatório e vídeo de divulgação
 
 ---
+## 📊 Resultados Experimentais
+
+Para avaliar o desempenho da classificação, testamos o modelo **XGBoost** sob três estratégias diferentes de tratamento de desbalanceamento de classes: **Sample Weight**, **SMOTE** e **None** (Sem tratamento).
+
+Abaixo estão os resultados comparativos:
+
+### 1. Resumo Comparativo
+
+| Estratégia | Acurácia Global | Weighted F1-Score | Observação Principal |
+|:----------:|:---------------:|:-----------------:|:---------------------|
+| **None** | **58.91%** | **0.55** | Alta acurácia, mas ignora classes minoritárias. |
+| **SMOTE** | 36.58%          | 0.41              | Melhor equilíbrio entre classes, mas gera muitos falsos positivos. |
+| **Weights**| 35.88%          | 0.41              | Resultado similar ao SMOTE, com ligeira queda na performance. |
+
+---
+
+### 2. Detalhamento por Estratégia
+
+#### A. Estratégia: NONE (Treinamento Padrão)
+*Nesta abordagem, o modelo foi treinado com os dados originais, preservando o desbalanceamento natural (dominância de LTR).*
+
+> **Acurácia:** 0.5891
+
+| Classe | Precision | Recall | F1-Score | Suporte |
+|:------:|:---------:|:------:|:--------:|:-------:|
+| Helitron | **0.92** | 0.00 | 0.00 | 7.209 |
+| LINE | 0.65 | 0.01 | 0.01 | 3.238 |
+| **LTR** | 0.78 | 0.69 | **0.73** | 56.176 |
+| MITE | 0.11 | 0.00 | 0.00 | 7.730 |
+| SINE | 0.74 | 0.06 | 0.10 | 1.070 |
+| TIR | 0.40 | **0.81** | 0.54 | 24.308 |
+
+#### B. Estratégia: SMOTE (Synthetic Minority Over-sampling Technique)
+*Foi aplicada a geração de dados sintéticos para aumentar a representatividade das classes minoritárias.*
+
+> **Acurácia:** 0.3658
+
+| Classe | Precision | Recall | F1-Score | Suporte |
+|:------:|:---------:|:------:|:--------:|:-------:|
+| Helitron | 0.16 | 0.39 | 0.22 | 7.209 |
+| LINE | 0.06 | 0.16 | 0.08 | 3.238 |
+| **LTR** | **0.80** | 0.34 | 0.48 | 56.176 |
+| MITE | 0.14 | 0.35 | 0.20 | 7.730 |
+| SINE | 0.06 | 0.22 | 0.10 | 1.070 |
+| TIR | 0.44 | 0.45 | 0.44 | 24.308 |
+
+#### C. Estratégia: SAMPLE_WEIGHT (Ponderação de Classes)
+*O modelo atribuiu pesos maiores aos erros cometidos nas classes minoritárias durante o treinamento.*
+
+> **Acurácia:** 0.3588
+
+| Classe | Precision | Recall | F1-Score | Suporte |
+|:------:|:---------:|:------:|:--------:|:-------:|
+| Helitron | 0.16 | 0.39 | 0.23 | 7.209 |
+| LINE | 0.05 | 0.19 | 0.08 | 3.238 |
+| **LTR** | 0.79 | 0.36 | 0.49 | 56.176 |
+| MITE | 0.16 | 0.47 | 0.24 | 7.730 |
+| SINE | 0.07 | 0.20 | 0.10 | 1.070 |
+| TIR | 0.42 | 0.34 | 0.38 | 24.308 |
+
+---
 
 ## Como Começar (Instruções de Execução)
 Este repositório usa `.gitignore` para ignorar arquivos de dados grandes e processados. Para clonar o projeto e recriar os arquivos necessários, siga estas etapas:

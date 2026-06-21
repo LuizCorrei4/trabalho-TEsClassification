@@ -1,5 +1,5 @@
 # 🧬 trabalho-TEsClassification
-Trabalho realizado para a disciplina **SCC02713 - Introdução à Bioinformática** do **Instituto de Ciências Matemáticas e de Computação (ICMC-USP)**.
+Trabalho realizado para a disciplina **SCC02713 - Introdução à Bioinformática (2025)** e, posteriormente usado para um trabalho **SCC0270 - Redes Neurais e Aprendizado Profundo (2026)** de  do **Instituto de Ciências Matemáticas e de Computação (ICMC-USP)**.
 
 ## 🎯 Objetivo
 Este projeto tem como objetivo construir um **modelo de classificação de Elementos Transponíveis (TEs)** da planta *Zea mays*, utilizando dados do **Atlas dos Elementos Transponíveis em Plantas** e o **genoma de referência do NCBI**.
